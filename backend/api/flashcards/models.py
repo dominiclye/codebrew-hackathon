@@ -36,7 +36,7 @@ class Sets(db.Model):
     title = db.Column(db.String(80), unique=False, nullable=False)
     cards = db.relationship('Cards', backref='set', lazy=True)
 
-    @property
+    @property #Decorator that allows you to define properties on classes. 
     def num_cards(self):
         return len(self.cards)
 
