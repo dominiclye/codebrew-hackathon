@@ -1,5 +1,5 @@
 from config import db
-import datetime
+from datetime import datetime
 
 class User(db.Model):
     """The user schema to be used for authentication in the users table
@@ -11,5 +11,13 @@ class User(db.Model):
     uid = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(80), nullable=False)
-    timestamp = db.Column(db.DateTime, datetime=datetime.utcnow)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def json_export(body):
+        return {
+            "uid": body.uid,
+            "email": body.email,
+            "password": body.password,
+            "timestamp": body.timestamp
+        }
 
