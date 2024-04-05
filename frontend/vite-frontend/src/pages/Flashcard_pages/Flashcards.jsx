@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavBar from '../components/NavBar';
 
 // Placeholder data for the flashcard sets
 const flashcardSets = [
@@ -37,6 +38,8 @@ function FlashcardsPage() {
   };
 
   return (
+    <>
+    <NavBar/>
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="w-full max-w-4xl p-8 bg-white shadow-lg">
         <div className="flex justify-between items-center mb-6">
@@ -71,6 +74,7 @@ function FlashcardsPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
