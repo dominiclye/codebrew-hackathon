@@ -1,5 +1,4 @@
 from flask import request, jsonify
-from config import app, db
 from .models import Sets
 from api.auth.models import User
 from flask_jwt_extended import jwt_required, get_jwt_identity
@@ -10,7 +9,6 @@ def flashcard_routes(app, db):
     @jwt_required()
     def get_sets():
         current_user = get_jwt_identity()
-        print(current_user)
         sets = Sets.query.filter_by(user_id=current_user).all()
         json_sets = [set.to_json() for set in sets]
         return jsonify({"sets": json_sets})

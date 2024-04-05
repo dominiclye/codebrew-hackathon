@@ -1,6 +1,5 @@
 from config import db
 import json
-from api.auth.models import User
 
 class Sets(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.uid'))
