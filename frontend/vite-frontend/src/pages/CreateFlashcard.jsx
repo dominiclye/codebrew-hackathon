@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavBar from '../components/NavBar';
 
 function CreateFlashcardPage() {
   const [term, setTerm] = useState('');
@@ -15,6 +16,8 @@ function CreateFlashcardPage() {
   };
 
   return (
+    <>
+    <NavBar />
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
         <h3 className="text-2xl font-bold text-center mb-4">Create a New Flashcard</h3>
@@ -52,6 +55,7 @@ function CreateFlashcardPage() {
         </form>
       </div>
     </div>
+    </>
   );
 }
 
