@@ -1,7 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const NavBar = () => {
+  
+  const authStatus = async (e) => {
+    const response = await axios.get("http://127.0.0.1:5000/protected", { 
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('access_token')
+      }
+    });
+    try{
+      alert(response.data.isAuthenticated);
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem('user_id');
+    window.location.reload();
+  }
+
   return (
     <nav className="bg-white shadow">
       <div className="container mx-auto px-6 py-3">
@@ -17,6 +37,8 @@ const NavBar = () => {
             <a to="/todo-list" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">To-do List</a>
             <Link to="/flashcards" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">Flashcards</Link>
             <a to="/settings" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">Settings</a>
+            <button onClick={authStatus}>Auth Status</button>
+            <button onClick={logout}>logout</button>
           </div>
         </div>
       </div>
