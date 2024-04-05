@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../../components/NavBar';
+import { useNavigate } from 'react-router-dom';
 
 // Placeholder data for the flashcard sets
 const flashcardSets = [
@@ -25,11 +26,12 @@ const flashcardSets = [
 function FlashcardsPage() {
   const [selectedSetIndex, setSelectedSetIndex] = useState(null);
 
+  const navigate = useNavigate();
+
   // Handler for creating a new flashcard set
-  const handleCreateSet = () => {
-    // This would be replaced with a method for creating a new set,
-    // possibly showing a form to the user or navigating to a different page.
-    console.log('Creating a new flashcard set...');
+  const handleCreateSet = async (e) => {
+    e.preventDefault();
+    navigate('/create-set');
   };
 
   // Function to handle selecting a flashcard set

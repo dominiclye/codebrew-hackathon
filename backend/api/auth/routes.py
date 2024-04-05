@@ -9,6 +9,7 @@ login_manager.init_app(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
 def auth_routes(app, db):
     @app.route('/register', methods=['POST', 'GET'])
     def register():
@@ -39,8 +40,9 @@ def auth_routes(app, db):
             user = User.query.filter_by(email=email).first()
             if user:
                 if user.password == password:
-                    return jsonify({"message": "User logged in!"}), 200
                     login_user(user, remember=True)
+                    return jsonify({"message": "User logged in!"}), 200
+                    
                 else:
                     return jsonify({"message": "Incorrect password"}), 400
                 
