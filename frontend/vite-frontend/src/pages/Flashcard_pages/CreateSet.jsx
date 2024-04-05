@@ -28,11 +28,16 @@ function CreateSetPage() {
     try {
       const response = await axios.post('http://127.0.0.1:5000/create_set', {
         title: title,
-        cards: formattedCards  // Send the cards array
+        cards: formattedCards,
+        user_id: localStorage.getItem('user_id')
+      }, { 
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('access_token')
+        }
       });
       if (response.status === 201) {
         console.log("Set created successfully:", response.data.message);
-        navigate('/flashcards');  // Adjust the route as necessary
+        navigate('/flashcards');  
       } else {
         console.log("Set creation failed:", response.data.message);
       }
@@ -53,37 +58,17 @@ function CreateSetPage() {
         />
         {cards.map((card, index) => (
           <div key={index} className="flex items-center space-x-4 mb-4">
-            <input
-              type="text"
-              name="term"
-              placeholder="Term"
-              value={card.term}
-              onChange={(e) => handleCardChange(index, e)}
-              className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            />
-            <input
-              type="text"
-              name="definition"
-              placeholder="Definition"
-              value={card.definition}
-              onChange={(e) => handleCardChange(index, e)}
-              className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            />
-            {index === cards.length - 1 && (
-              <button
-                onClick={addCard}
-                className="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none"
-              >
-                Add Card
-              </button>
-            )}
+            
+            <input type="text" name="term" placeholder="Term" value={card.term} onChange={(e) => handleCardChange(index, e)} className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"/>
+            
+            <input type="text" name="definition" placeholder="Definition" value={card.definition} onChange={(e) => handleCardChange(index, e)} className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"/>
+            
+            {index === cards.length - 1 && (<button onClick={addCard} className="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none">Add Card</button>)}
+          
           </div>
         ))}
         <div className="fixed bottom-4 right-4">
-          <button
-            type='submit'
-            className="px-6 py-2 text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none"
-          >
+          <button type='submit' className="px-6 py-2 text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none">
             Save Set
           </button>
         </div>

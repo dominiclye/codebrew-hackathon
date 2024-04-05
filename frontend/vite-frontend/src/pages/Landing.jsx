@@ -1,7 +1,10 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
+import axios from 'axios';
 const Landing = () => {
+ 
   return (
+
     <div className="min-h-screen bg-gray-100">
       <NavBar/>
       <div className="flex items-center justify-center min-h-screen">
