@@ -1,6 +1,5 @@
 import React from 'react';
-import NavBar from '../components/NavBar'
-
+import NavBar from '../components/NavBar';
 const Landing = () => {
   return (
     <div className="min-h-screen bg-gray-100">
