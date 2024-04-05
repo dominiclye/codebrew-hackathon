@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from app import app, db
+from config import app, db
 from models import Sets, Cards
 
 # Routes for Sets
