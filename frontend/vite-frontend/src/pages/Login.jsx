@@ -5,17 +5,33 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/auth/login', { email, password })
-    .then(function (response) {
-        console.log(response);
-    })
-    .catch(function (err) {
-        console.log(err);
-    })
-  };
+    const loginData = {
+      email: email,
+      password: password,
+    };
 
+    try {
+      // Send POST request to your backend
+      const response = await axios.post('http://localhost:5000/auth/login', loginData);
+
+      // Check response status code or data as needed
+      if (response.status === 200) {
+        // Login successful
+        console.log("Login successful:", response.data.message);
+        // Here you might redirect the user or update the UI accordingly
+      } else {
+        // Handle any other status codes as needed
+        console.log("Login failed:", response.data.message);
+      }
+    } catch (error) {
+      // Handle errors (e.g., network error, server error, etc.)
+      console.error("Login error:", error.response ? error.response.data.message : error.message);
+    }
+  }; // This closing brace ends the handleSubmit function
+
+  // The return statement is correctly placed inside the LoginPage function
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg">
