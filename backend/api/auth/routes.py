@@ -9,7 +9,6 @@ login_manager.init_app(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-
 def auth_routes(app, db):
     @app.route('/register', methods=['POST', 'GET'])
     def register():
