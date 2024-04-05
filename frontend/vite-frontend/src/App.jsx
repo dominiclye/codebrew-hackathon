@@ -1,9 +1,9 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import FlashcardsPage from './pages/Flashcards'
-import CreateFlashcardPage from './pages/CreateFlashcard'
+import Login from './pages/User_pages/Login'
+import Register from './pages/User_pages/Register'
+import FlashcardsPage from './pages/Flashcard_pages/Flashcards'
+import CreateFlashcardPage from './pages/Flashcard_pages/CreateFlashcard'
 import Landing from './pages/Landing'
 
 const App = () => {

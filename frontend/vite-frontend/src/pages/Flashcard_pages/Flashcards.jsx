@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavBar from '../components/NavBar';
+import NavBar from '../../components/NavBar';
 
 // Placeholder data for the flashcard sets
 const flashcardSets = [

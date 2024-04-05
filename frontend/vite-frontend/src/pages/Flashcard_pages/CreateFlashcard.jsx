@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavBar from '../components/NavBar';
+import NavBar from '../../components/NavBar';
 
 function CreateFlashcardPage() {
   const [term, setTerm] = useState('');
