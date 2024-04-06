@@ -42,7 +42,7 @@ const TodoList = () => {
                         <li key={list.id} className="mb-4 p-4 shadow rounded">
                             <h2 className="text-xl font-semibold">{list.title}</h2>
                             <p>{list.description}</p>
-                            <p>Due: {new Date(list.dueDate).toLocaleDateString()}</p>
+                            <p>Due: {new Date(list.due_date ).toLocaleDateString()}</p>
                         </li>
                     ))}
                 </ul>

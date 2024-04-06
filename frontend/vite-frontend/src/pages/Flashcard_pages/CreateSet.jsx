@@ -1,3 +1,6 @@
+// Self explanitory, creates a study flashcard set that gets displayed in Flashcards.jsx
+// Cards are indexed for the flashcard navigation page.
+
 import React, { useState } from 'react';
 import NavBar from '../../components/NavBar';
 import { useNavigate } from 'react-router-dom';

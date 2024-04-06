@@ -53,8 +53,10 @@ const FlashcardPracticePage = () => {
           <h1 className="text-4xl text-center font-bold mb-6">{flashcardSet.title}</h1>
           <div className="flex flex-col items-center">
             <div className="flashcard bg-white p-10 rounded-lg shadow-md w-96 mb-4">
+            {/* Do not touch the index values! */}
               <div className="flashcard-term text-2xl font-semibold">{flashcardSet.cards[currentCardIndex].question}</div>
               {reveal && <div className="flashcard-definition text-lg mt-4">{flashcardSet.cards[currentCardIndex].answer}</div>}
+
             </div>
             <button onClick={handleRevealClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-200">{reveal ? 'Hide' : 'Reveal'} Answer</button>
           </div>

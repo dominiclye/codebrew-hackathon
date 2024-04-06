@@ -28,6 +28,7 @@ const App = () => {
             <Landing />
           </ProtectedRoute>
         } />
+        
       </Routes>
     </Router>
   )

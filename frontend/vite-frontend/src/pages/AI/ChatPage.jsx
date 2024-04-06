@@ -65,13 +65,7 @@ const ChatPage = () => {
                 ))}
             </div>
             <div className="bg-gray-200 px-4 py-3 flex justify-between items-center">
-                <input
-                    type="text"
-                    value={inputText}
-                    onChange={(e) => setInputText(e.target.value)}
-                    className="flex-1 bg-white rounded-full py-2 px-4 mr-4 shadow-md"
-                    placeholder="Type your message here..."
-                />
+                <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} className="flex-1 bg-white rounded-full py-2 px-4 mr-4 shadow-md" placeholder="Type your message here..."/>
                 <button
                     onClick={handleSendMessage}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md"
@@ -87,68 +81,3 @@ const ChatPage = () => {
 
 export default ChatPage;
 
-// import React, { useState } from 'react';
-// import NavBar from '../../components/NavBar';
-
-// const ChatPage = () => {
-//     const [inputText, setInputText] = useState('');
-
-//     const handleButtonClick = (action) => {
-//         // You can implement the logic based on the action here
-//         switch (action) {
-//             case 'getHelp':
-//                 // Handle get help action
-//                 break;
-//             case 'generateFlashcards':
-//                 // Handle generate flashcards action
-//                 break;
-//             case 'generatePracticeQuestion':
-//                 // Handle generate practice question action
-//                 break;
-//             default:
-//                 break;
-//         }
-//     };
-
-//     return (
-//         <>
-    
-//         <div className="flex flex-col h-screen">
-//         <NavBar/>
-//             <div className="flex-1 overflow-y-auto bg-gray-100">
-//             </div>
-//             <div className="flex justify-between items-center bg-gray-200 p-4">
-//                 <input
-//                     type="text"
-//                     value={inputText}
-//                     onChange={(e) => setInputText(e.target.value)}
-//                     className="flex-1 bg-white rounded-full py-2 px-4 mr-4"
-//                     placeholder="Type your message here..."
-//                 />
-//                 <div className="flex space-x-4">
-//                     <button
-//                         onClick={() => handleButtonClick('getHelp')}
-//                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-//                     >
-//                         Get Help
-//                     </button>
-//                     <button
-//                         onClick={() => handleButtonClick('generateFlashcards')}
-//                         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-//                     >
-//                         Generate Flashcards
-//                     </button>
-//                     <button
-//                         onClick={() => handleButtonClick('generatePracticeQuestion')}
-//                         className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
-//                     >
-//                         Practice Question
-//                     </button>
-//                 </div>
-//             </div>
-//         </div>
-//         </>
-//     );
-// };
-
-// export default ChatPage;
