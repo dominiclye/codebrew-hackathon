@@ -1,6 +1,7 @@
 from config import db
 from datetime import datetime
 from flask_login import UserMixin
+import json
 
 class User(db.Model, UserMixin):
     """The user schema to be used for authentication in the users table

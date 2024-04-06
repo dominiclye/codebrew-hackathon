@@ -32,13 +32,10 @@ const NavBar = () => {
             </div>
           </div>
           <div className="flex flex-col md:flex-row md:mx-6">
-            <a to="/account" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">Account</a>
-            <a to="/ai-tutor" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">AI Tutor</a>
-            <a to="/todo-list" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">To-do List</a>
+            <Link to="/chat" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">AI Tutor</Link>
+            <Link to="/todo" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">To-do List</Link>
             <Link to="/flashcards" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">Flashcards</Link>
-            <a to="/settings" className="my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0">Settings</a>
-            <button onClick={authStatus}>Auth Status</button>
-            <button onClick={logout}>logout</button>
+            <button onClick={logout} className='my-1 text-gray-700 hover:text-blue-600 md:mx-4 md:my-0'>Logout</button>
           </div>
         </div>
       </div>

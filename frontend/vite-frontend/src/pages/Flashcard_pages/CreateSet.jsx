@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function CreateSetPage() {
-  const [cards, setCards] = useState([{ term: '', definition: '' }]);
+  const [cards, setCards] = useState([{ term: '', definition: ''}]);
   const [title, setTitle] = useState("");
 
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function CreateSetPage() {
   };
 
   const addCard = () => {
-    setCards([...cards, { term: '', definition: '' }]);
+    setCards([...cards, { term: '', definition: ''}]);
   };
 
   const saveSet = async (e) => {
@@ -64,7 +64,6 @@ function CreateSetPage() {
             <input type="text" name="definition" placeholder="Definition" value={card.definition} onChange={(e) => handleCardChange(index, e)} className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"/>
             
             {index === cards.length - 1 && (<button onClick={addCard} className="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none">Add Card</button>)}
-          
           </div>
         ))}
         <div className="fixed bottom-4 right-4">

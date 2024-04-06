@@ -1,18 +1,17 @@
 from config import db
+import json
 
-class Task(db.Model):
+class Lists(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.uid'))
-    user = db.relationship('User', backref='tasks')
-    tid = db.Column(db.Integer, primary_key=True)
+    user = db.relationship('User', backref='lists')
+    lid = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), unique=False, nullable=False)
-    description = db.Column(db.Text, default="")
-    due_date = db.Column(db.DateTime, nullable=True)
-    
+    tasks = db.Column(db.Text, default=[])
+
     def to_json(self):
         return {
-            "taskId": self.tid,
+            "listId": self.lid,
             "title": self.title,
-            "description": self.description,
-            "dueDate": self.due_date,
-            "userId": self.user_id
+            "tasks": json.loads(self.tasks),
+            "userId": self.user_id,
         }
