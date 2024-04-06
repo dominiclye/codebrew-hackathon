@@ -1,7 +1,8 @@
 from config import db
 from datetime import datetime
+from flask_login import UserMixin
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     """The user schema to be used for authentication in the users table
 
     Args:
@@ -20,4 +21,7 @@ class User(db.Model):
             "password": body.password,
             "timestamp": body.timestamp
         }
+    
+    def get_id(self):
+        return str(self.uid)
 

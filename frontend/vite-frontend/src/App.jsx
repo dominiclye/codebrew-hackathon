@@ -1,16 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import FlashcardsPage from './pages/Flashcards'
+import Login from './pages/User_pages/Login'
+import Register from './pages/User_pages/Register'
+import FlashcardsPage from './pages/Flashcard_pages/Flashcards'
+import CreateSetPage from './pages/Flashcard_pages/CreateSet'
+import Landing from './pages/Landing'
+import ProtectedRoute from './ProtectedRoute'
+import FlashcardPracticePage from './pages/Flashcard_pages/FlashcardPracticePage'
+
 
 const App = () => {
+
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/flashcards" element={<FlashcardsPage />} />
+        <Route path="/flashcards" element={<ProtectedRoute><FlashcardsPage /></ProtectedRoute>} />
+        <Route path="/create-set" element={<ProtectedRoute><CreateSetPage /></ProtectedRoute>} />
+        <Route path="/flashcards/:setId/practice" element={<ProtectedRoute><FlashcardPracticePage /></ProtectedRoute>} />
+
+        <Route path="/" element={
+          <ProtectedRoute>
+            <Landing />
+          </ProtectedRoute>
+        } />
       </Routes>
     </Router>
   )

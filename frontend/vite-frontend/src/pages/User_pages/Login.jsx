@@ -20,7 +20,9 @@ const LoginPage = () => {
 
       if (response.status === 200) {
         console.log("Login successful:", response.data.message);
-        navigate('/flashcards');
+        localStorage.setItem('user_id', response.data.user_id);
+        localStorage.setItem('access_token', response.data.access_token);
+        navigate('/');
 
       } else {
         console.log("Login failed:", response.data.message);
